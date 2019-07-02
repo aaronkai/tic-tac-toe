@@ -1,11 +1,21 @@
 class Board
-  attr_accessor :grid
+  attr_accessor :board
   
 	def initialize
-		@grid = [[1,2,3],[4,5,6],[7,8,9]]
+		@board = [[1,2,3],[4,5,6],[7,8,9]]
 	end
-  
-  def to_s
+  	
+	def mark_board(choice, mark)
+		@grid.each do |array|
+			array.map! { |cell| cell == choice ? mark : cell }#{ |cell| puts "#{cell} = #{choice}" }#
+		end
+	end
+	
+	def winner
+		
+	end
+	
+	def to_s
     @grid.each do |row|
       row.each do |cell|
         print " #{cell} "
@@ -13,4 +23,6 @@ class Board
       print "\n"
     end
   end
+		
 end
+
